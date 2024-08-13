@@ -35,14 +35,3 @@ class StatcordAPI:
 
     def stop_auto_post(self):
         self.update_stats.cancel()
-
-class Statcord(commands.Cog):
-    def __init__(self, bot):
-        self.bot = bot
-        self.statcord_api = StatcordAPI(bot)
-
-    def cog_unload(self):
-        self.statcord_api.stop_auto_post()
-
-async def setup(bot):
-    await bot.add_cog(Statcord(bot))
